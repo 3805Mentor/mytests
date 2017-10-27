@@ -36,7 +36,7 @@ public class debounce extends OpMode {
   boolean SlowMode = false;
   boolean yButtonIsReleased = true;
   boolean xButtonIsReleased = true;
-  int position;
+  int position, pos2, pos3, pos4;
   int inc = 1;
   private ElapsedTime runtime = new ElapsedTime();
   @Override
@@ -65,9 +65,13 @@ public class debounce extends OpMode {
     } else {
       xButtonIsReleased = true;
     }
+    if (gamepad1.a) pos2 += inc;
+    else pos3 += inc;
     telemetry.addData("Status", "Run Time: " + runtime.toString());
     telemetry.addData("1", "SlowMode: " + SlowMode);
     telemetry.addData("2", "position: " + position);
-    // My comment here
+    telemetry.addData("3", "a pressed " + pos2);
+    telemetry.addData("4", "a not " + pos3);
+    telemetry.addData("5", "left trig " + gamepad1.left_trigger);
   }
 }
